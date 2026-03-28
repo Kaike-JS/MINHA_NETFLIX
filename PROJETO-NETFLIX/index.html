@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- para rodar o server cd /home/guest/Downloads/DEV/PROJETO\ NETFLIX && python3 -m http.server 8000 -->
+</head>
+<body>
+    <main>
+        <h1>Quem está assistindo?</h1>
+        <div class="theme-switcher" role="region" aria-label="Alternar modo de tema">
+            <button id="theme-toggle" type="button" aria-live="polite" aria-pressed="false" aria-label="Ativar modo claro">
+                <span class="theme-icon" aria-hidden="true">🌙</span>
+                <span class="theme-label">Modo claro</span>
+            </button>
+        </div>
+        <section class="profiles-container" aria-label="Seleção de perfis">
+            <nav class="profiles-list">
+                <ul>
+                    <li class="item-perfil">
+                        <a href="catalogo/catalogo.html" class="profile" aria-label="Selecionar perfil Kaike">
+                            <figure class="imagem-perfil">
+                                <img src="assets/perfil_1.png" alt="Imagem do Perfil 1, no qual é um zumbi segurando uma xicará">
+                                <figcaption>Kaike</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="catalogo/catalogo.html" class="profile" aria-label="Selecionar perfil Michelle">
+                            <figure>
+                                <img src="assets/perfil_2.png" alt="Imagem do Perfil 2, no qual é um boné azul com simbolo NTR">
+                                <figcaption>Michelle</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li>
+                         <a href="catalogo/catalogo.html" class="profile" aria-label="Selecionar perfil Regina">
+                            <figure>
+                                <img src="assets/perfil_2.png" alt="Imagem do Perfil 2, no qual é um boné azul com simbolo NTR">
+                                <figcaption>Regina</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li>
+                         <a href="catalogo/catalogo.html" class="profile" aria-label="Selecionar perfil Joel">
+                            <figure>
+                                <img src="assets/perfil_2.png" alt="Imagem do Perfil 2, no qual é um boné azul com simbolo NTR">
+                                <figcaption>Joel</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </main>
+
+<script src="js/index.js" defer></script>
+</body>
+</html>

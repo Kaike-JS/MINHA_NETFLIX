@@ -1,0 +1,281 @@
+/* Reset e Variáveis */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Zera espaçamentos e define box-sizing para evitar cálculos CSS estranhos */
+:root {
+    --netflix-black: #141414;
+    --netflix-red: #E50914;
+    --netflix-dark-grey: #221f1f;
+    --netflix-light-grey: #808080;
+    --text-primary: #ffffff;
+    --background: linear-gradient(135deg, var(--netflix-black) 0%, var(--netflix-dark-grey) 100%);
+    --transition: all 0.3s ease;
+}
+
+[data-theme="light"] {
+    --netflix-black: #f8f8f8;
+    --netflix-dark-grey: #d4d4d4;
+    --netflix-light-grey: #4a4a4a;
+    --text-primary: #121212;
+    --background: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
+}
+
+/* Variáveis CSS usadas em todo o tema (cores Netflix + transição global) */
+
+/* Body e Tipografia */
+body {
+    background: var(--background);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Fundo degradê, texto claro, fonte moderna e padding geral */
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 3rem;
+}
+/* Centro vertical/horizontal do conteúdo principal */
+/* Títulos */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: none;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+/* Título grande com animação de entrada */
+h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--netflix-red);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+/* Linha vermelha abaixo do título = estilo Netflix */
+/* Container de Perfis */
+.profiles-container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.profiles-list,
+.profiles-list ul,
+.profiles-list ol,
+.profiles-list li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profiles-list {
+    display: block;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.profiles-list > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.profiles-list li {
+    display: block;
+    margin-left: 3rem;
+}
+
+.theme-switcher {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#theme-toggle {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 0.62rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.65);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+#theme-toggle:active {
+    transform: translateY(0);
+}
+
+#theme-toggle[aria-pressed="true"] {
+    background: rgba(229, 9, 20, 0.85);
+    border-color: rgba(229, 9, 20, 0.85);
+    color: #fff;
+}
+
+#theme-toggle .theme-icon {
+    font-size: 1rem;
+}
+
+#theme-toggle .theme-label {
+    white-space: nowrap;
+}
+
+/* Grid responsivo para as miniaturas de perfil */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    transform: scale(1);
+}
+
+/* Hover de perfil: efeito de hover leve para dar sensação de clique */
+.profile:hover {
+    transform: scale(1.05);
+/* feedback hover (zoom leve) */
+}
+
+.profile figure {
+    display: flex; /* layout do conjunto imagem + texto */
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+}
+
+.profile img {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: var(--transition);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+}
+
+.profile:hover img {
+    border-color: var(--netflix-red);
+    box-shadow: 0 12px 24px rgba(229, 9, 20, 0.4);
+/* borda + sombra no hover, estilo Netflix */
+}
+
+.profile figcaption {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--netflix-light-grey);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.profile:hover figcaption {
+    color: var(--netflix-red);
+    font-weight: 600;
+}
+
+/* Animações */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* animações do título e dos cards */
+
+/* Responsividade */
+@media (min-width: 901px) {
+    .profiles-list {
+        grid-template-columns: repeat(4, minmax(160px, 1fr));
+        justify-items: center;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .profiles-list {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+
+    body {
+        padding: 1rem;
+    }
+
+    main {
+        min-height: auto;
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .profiles-list {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile figcaption {
+        font-size: 0.9rem;
+    }
+}
+/* ajustes para tablet e celular */
